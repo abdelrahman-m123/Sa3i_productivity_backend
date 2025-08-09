@@ -9,7 +9,7 @@ A Node.js backend for managing **users** and **tasks**, with JWT authentication 
 
 ---
 
-## 🔧 Postman API Tests  
+##  Postman API Tests  
 
 | Endpoint               | Description                          | Screenshot |
 |------------------------|--------------------------------------|------------|
