@@ -4,8 +4,10 @@ const path = require("path");
 const connectDB = require("./config/db");
 const userRoutes = require("./routes/auth");
 const taskRoutes = require("./routes/tasks");
+const cors = require("cors"); 
 
 const app = express();
+app.use(cors());
 app.use("/uploads", express.static(path.join(__dirname, 'uploads')));
 connectDB();
 

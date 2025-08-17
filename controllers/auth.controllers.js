@@ -5,6 +5,8 @@ const bcrypt = require("bcryptjs");
 const fs = require("fs");
 const path = require("path");
 
+
+
 const signup = async (req, res) => {
   try {
     let { password, name, photo, email, role } = req.body;
