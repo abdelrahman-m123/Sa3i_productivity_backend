@@ -14,5 +14,8 @@ router
   .get(userControllers.protectRoutes, taskControllers.getTaskById)
   .patch(userControllers.protectRoutes, taskControllers.updateTask)
   .delete(userControllers.protectRoutes, taskControllers.deleteTask);
+router
+  .route("/user/:userId")
+  .get(userControllers.protectRoutes,taskControllers.getUserTasks)
 
 module.exports = router;

@@ -82,7 +82,7 @@ const login = async (req, res) => {
   return res.status(200).json({
     status: "success",
     token: token,
-    data: { user: { name: existingUser.name, email, role: existingUser.role } },
+    data: { user: { name: existingUser.name, email, role: existingUser.role, photo: existingUser.photo } },
   });
 };
 

@@ -39,6 +39,28 @@ const createTask = async (req, res) => {
   }
 };
 
+const getUserTasks = async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const page = +req.query.page || 1;
+    const limit = +req.query.limit || 5;
+    const skip = (page - 1) * limit;
+
+    const tasks = await Task.find({ userId: userId }).skip(skip).limit(limit);
+    res.status(200).json({
+      status: "success",
+      total: tasks.length,
+      data: tasks
+    });
+  } catch (error) {
+    res.status(500).json({
+      status: "fail",
+      message: "Something went wrong: " + error.message
+    });
+  }
+};
+
+
 const getTaskById = async (req, res) => {
   try {
     const task = await Task.findOne({ 
@@ -106,5 +128,6 @@ module.exports = {
   getTasks,
   getTaskById,
   updateTask,
-  deleteTask
+  deleteTask,
+  getUserTasks
 };

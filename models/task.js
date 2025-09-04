@@ -10,9 +10,6 @@ const taskSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
-  dueDate: {
-    type: Date,
-  },
   completed: {
     type: Boolean,
     default: false,
@@ -32,13 +29,7 @@ const taskSchema = new mongoose.Schema({
     ref: "User",
     required: [true, "Task must belong to a user"],
   },
-  completedAt: {
-    type: Date,
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now(),
-  },
+  
 });
 
 const Task = mongoose.model("Task", taskSchema);
